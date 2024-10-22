@@ -1,0 +1,30 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.container {
+  background-color: #222737;
+  display: flex;
+  justify-content: center; /* Centrage horizontal */
+  align-items: center;     /* Centrage vertical */
+  height: 100vh;           /* Hauteur de la fenêtre complète */
+  width: 100%;             /* Largeur complète */
+  box-sizing: border-box;
+    /* Inclut la bordure et le padding dans la largeur totale */
+}
+
+/* Contenu extensible */
+.content {
+  background-color: #f0f0f0; /* Exemple de couleur de fond */
+  padding: 20px;             /* Espacement interne */
+  border-radius: 8px;        /* Coins arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre pour le style */
+  width: 100%;               /* Prend toute la largeur disponible */
+  max-width: 800px;          /* Largeur maximale pour un aspect agréable */
+}
