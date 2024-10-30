@@ -1,0 +1,9 @@
+{
+  "name": "super-heroes-db",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "super-heroes-db/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project super-heroes-db --web",
+  "targets": {}
+}

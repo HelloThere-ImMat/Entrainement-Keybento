@@ -1,0 +1,17 @@
+{
+  "name": "super-heroes-api-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["super-heroes-api"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "super-heroes-api-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["super-heroes-api:build"]
+    }
+  }
+}

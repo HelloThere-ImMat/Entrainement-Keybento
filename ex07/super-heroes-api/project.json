@@ -1,0 +1,58 @@
+{
+  "name": "super-heroes-api",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "super-heroes-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/super-heroes-api",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "super-heroes-api/src/main.ts",
+        "tsConfig": "super-heroes-api/tsconfig.app.json",
+        "assets": ["super-heroes-api/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "super-heroes-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "super-heroes-api:build:development"
+        },
+        "production": {
+          "buildTarget": "super-heroes-api:build:production"
+        }
+      }
+    }
+  }
+}

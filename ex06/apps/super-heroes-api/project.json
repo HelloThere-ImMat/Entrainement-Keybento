@@ -1,0 +1,26 @@
+{
+  "name": "super-heroes-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/super-heroes-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "super-heroes-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "super-heroes-api:build:development"
+        },
+        "production": {
+          "buildTarget": "super-heroes-api:build:production"
+        }
+      }
+    }
+  }
+}
