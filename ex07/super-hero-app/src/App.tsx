@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { fetchSuperheroes, Superhero } from './api';
 import SuperHeroesTable from './components/SuperHeroesTable';
+import CreationForm from './components/CreationForm'
 
 function App() {
   const [superheroes, setSuperheroes] = useState<Superhero[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-//
+  const [creating, setCreating] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,6 +22,7 @@ function App() {
     };
     fetchData();
   }, []);
+  
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -47,6 +50,10 @@ function App() {
         ) : (
           <SuperHeroesTable superheroes={superheroes} />
         )}
+        <div className="my-4">
+          <button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:border-transparent hover:bg-purple-600 hover:ring" onClick={() => setCreating(true)}>Add new super-hero</button>
+        </div>
+          <CreationForm creating={creating} />
       </div>
     </div>
   );

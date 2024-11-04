@@ -7,8 +7,6 @@ export const typeDefs = gql`
     fullname: String!
     creationDate: String!
     publisher: String!
-    createdAt: String!
-    updatedAt: String!
   }
 
   type Query {
@@ -16,4 +14,15 @@ export const typeDefs = gql`
     superHero(id: Int!): SuperHero
   }
 
-`;
+  type Mutation {
+    addSuperHero(superhero: AddSuperHeroInput!) : SuperHero
+  }
+  input AddSuperHeroInput {
+    name: String!
+    fullname: String!
+    creationDate: String!
+    publisher: String!
+  }
+
+  `;
+

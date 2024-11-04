@@ -5,16 +5,18 @@ export const resolvers = {
     superHeroes: () => db.findAll(),
     superHero: (_, { id }) => db.findById(id),
   },
-  // Mutation: {
-  //   createSuperHero: async (_: any, { input }: { input: CreateSuperHeroInput }) => {
-  //     return db.create({
-  //       name: input.name,
-  //       fullname: input.fullname,
-  //       creationDate: new Date(input.creationDate),
-  //       publisher: input.publisher,
-  //     });
-  //   }
-  // }
+  Mutation: {
+    addSuperHero(_, { superhero }) {
+      let newSuperhero = {
+        name: superhero.name,
+        fullname: superhero.fullname,
+        creationDate: superhero.creationDate,
+        publisher: superhero.publisher
+      }
+      db.create(newSuperhero);
+      return (newSuperhero);
+    }
+  }
 };
 
 

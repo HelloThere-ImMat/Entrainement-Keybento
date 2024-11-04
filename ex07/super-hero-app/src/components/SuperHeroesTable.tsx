@@ -23,7 +23,7 @@ function SuperHeroesTable({ superheroes }: SuperHeroesTableProps) {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{hero.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{hero.fullname}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {new Date(hero.creationDate).toLocaleDateString()}
+                  {(hero.creationDate)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{hero.publisher}</td>
               </tr>

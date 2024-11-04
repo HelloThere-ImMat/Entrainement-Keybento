@@ -25,6 +25,31 @@ export async function fetchSuperheroes() {
   return data.superHeroes;
 }
 
+export async function createSuperHero(superhero :FormState) {
+  await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        mutation AddSuperHero($superhero: AddSuperHeroInput!) {
+          addSuperHero(superhero: $superhero) {
+            name
+            fullname
+            creationDate
+            publisher
+          }
+        }
+      `,
+      variables: {
+        superhero,
+      },
+    }),
+  });
+}
+
+
 export interface Superhero {
   id: string;
   name: string;
@@ -32,3 +57,11 @@ export interface Superhero {
   creationDate: string;
   publisher: string;
 }
+
+export interface FormState {
+	name: string;
+	fullname: string;
+	creationDate: string;
+	publisher: string;
+}
+
